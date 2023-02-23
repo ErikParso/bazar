@@ -1,4 +1,19 @@
 .app {
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.controls {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.items {
 	display: flex;
 	flex-direction: row;
 	gap: 20px;

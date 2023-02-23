@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import { CarItem, Brand } from './carItem/carItem'
+import { CarItem, Brand } from './carItem/carItem';
+import { Button, TextField } from '@mui/material';
 
 type Car = {
 	brand: Brand;
@@ -22,43 +23,46 @@ function App() {
 	};
 
 	return (
-		<div>
-			<div>
-				name: <input 
-					value={name} 
+		<div className='app'>
+			<div className='controls'>
+				<TextField
+					label='Name'
+					value={name}
 					onChange={(event) => setName(event.target.value)} />
 
-				price: <input 
-					value={price} 
-					onChange={(event) => setPrice(+event.target.value)} 
+				<TextField
+					label='Price'
+					value={price}
+					onChange={(event) => setPrice(+event.target.value)}
 					type='number' />
 
 				Skoda: <input
-					checked={brand === Brand.Skoda} 
+					checked={brand === Brand.Skoda}
 					onClick={() => setBrand(Brand.Skoda)}
 					type='radio' />
 
-				Audi: <input 
-					checked={brand === Brand.Audi} 
+				Audi: <input
+					checked={brand === Brand.Audi}
 					onClick={() => setBrand(Brand.Audi)}
 					type='radio' />
 
-				BMW: <input 
-					checked={brand === Brand.BMW} 
+				BMW: <input
+					checked={brand === Brand.BMW}
 					onClick={() => setBrand(Brand.BMW)}
 					type='radio' />
 
-				Mercedes: <input 
-					checked={brand === Brand.Mercedes} 
+				Mercedes: <input
+					checked={brand === Brand.Mercedes}
 					onClick={() => setBrand(Brand.Mercedes)}
 					type='radio' />
 
-				<button 
-					disabled={price > 1000 || name.length === 0} 
-					onClick={handleAddButtonClick}>Add</button>
+				<Button
+					variant='contained'
+					disabled={price > 1000 || name.length === 0}
+					onClick={handleAddButtonClick}>Add</Button>
 			</div>
 
-			<div className="app">
+			<div className="items">
 				{cars.map(item =>
 					<CarItem brand={item.brand} name={item.name} price={item.price} />
 				)}
