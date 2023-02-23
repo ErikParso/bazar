@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import { CarItem, Brand } from './carItem/carItem'
-import { Counter } from './counter/counter'
 
 type Car = {
 	brand: Brand;
@@ -17,7 +16,7 @@ function App() {
 	const [brand, setBrand] = useState(Brand.Skoda);
 
 	const handleAddButtonClick = () => {
-		const car: Car = { brand: brand, name: name, price: price };
+		const car: Car = { brand, name, price };
 		const newCars = cars.concat(car);
 		setCars(newCars);
 	};
@@ -27,32 +26,32 @@ function App() {
 			<div>
 				name: <input 
 					value={name} 
-					onChange={(event) => setName(event.target.value)}></input>
+					onChange={(event) => setName(event.target.value)} />
 
 				price: <input 
 					value={price} 
 					onChange={(event) => setPrice(+event.target.value)} 
-					type='number'></input>
+					type='number' />
 
 				Skoda: <input
 					checked={brand === Brand.Skoda} 
 					onClick={() => setBrand(Brand.Skoda)}
-					type='radio'></input>
+					type='radio' />
 
 				Audi: <input 
 					checked={brand === Brand.Audi} 
 					onClick={() => setBrand(Brand.Audi)}
-					type='radio'></input>
+					type='radio' />
 
 				BMW: <input 
 					checked={brand === Brand.BMW} 
 					onClick={() => setBrand(Brand.BMW)}
-					type='radio'></input>
+					type='radio' />
 
 				Mercedes: <input 
 					checked={brand === Brand.Mercedes} 
 					onClick={() => setBrand(Brand.Mercedes)}
-					type='radio'></input>
+					type='radio' />
 
 				<button 
 					disabled={price > 1000 || name.length === 0} 
