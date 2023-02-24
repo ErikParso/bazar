@@ -1,5 +1,5 @@
-import { Car } from "../App";
 import { CarItem } from "../carItem/carItem";
+import { Car } from "../models/car";
 import "./carList.css";
 
 type CarListProps = {

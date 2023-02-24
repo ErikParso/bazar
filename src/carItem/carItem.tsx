@@ -1,12 +1,6 @@
 import React from "react";
+import { Brand } from "../models/car";
 import './carItem.css';
-
-export enum Brand {
-	Skoda = 'Skoda', 
-	Mercedes = 'Mercedes', 
-	Audi = 'Audi', 
-	BMW = 'BMW'
-}
 
 type CarItemProps = {
 	name: string;

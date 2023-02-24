@@ -1,14 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import { Brand } from './carItem/carItem';
 import { CarList } from './carList/carList';
 import { ControlPanel } from './controlPanel/controlPanel';
-
-export type Car = {
-	brand: Brand;
-	name: string;
-	price: number;
-}
+import { Car } from './models/car';
 
 function App() {
 
