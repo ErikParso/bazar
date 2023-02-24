@@ -1,7 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { Car } from "../App";
-import { Brand } from "../carItem/carItem";
+import { Brand, Car } from "../models/car";
 import "./controlPanel.css";
 
 type ControlPanelProps = {
@@ -12,6 +11,7 @@ export const ControlPanel = (props: ControlPanelProps) => {
 	const [name, setName] = useState('');
 	const [price, setPrice] = useState(0);
 	const [brand, setBrand] = useState(Brand.Skoda);
+	const [image, setImage] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/%C5%A0koda.svg/800px-%C5%A0koda.svg.png');
 
 	return (
 		<div className='controls'>
@@ -19,6 +19,11 @@ export const ControlPanel = (props: ControlPanelProps) => {
 				label='Name'
 				value={name}
 				onChange={(event) => setName(event.target.value)} />
+
+			<TextField
+				label='Image'
+				value={image}
+				onChange={(event) => setImage(event.target.value)} />
 
 			<TextField
 				label='Price'
@@ -49,7 +54,7 @@ export const ControlPanel = (props: ControlPanelProps) => {
 			<Button
 				variant='contained'
 				disabled={price > 1000 || name.length === 0}
-				onClick={() => props.onAddCarClick({ name, brand, price })}>Add</Button>
+				onClick={() => props.onAddCarClick({ name, brand, price, image })}>Add</Button>
 		</div>
 	);
 }

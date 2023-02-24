@@ -2,6 +2,7 @@ export type Car = {
 	brand: Brand;
 	name: string;
 	price: number;
+	image: string;
 }
 
 export enum Brand {
